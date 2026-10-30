@@ -473,7 +473,9 @@ details.more-pubs > summary {
 .wordmark { display: inline-flex; align-items: center; gap: .55rem; }
 .wordmark svg { width: 28px; height: 28px; flex: none; color: var(--accent); }
 .wordmark i { font-style: italic; color: var(--ink-2); }
-.mk-datum { stroke: var(--signal); }
+.mk-datum { stroke: var(--signal); fill: var(--signal); }
+.expansion { font: 500 .875rem/1.4 var(--sans); color: var(--ink-2); margin-top: .35rem; max-width: 48ch; }
+.expansion abbr { text-decoration: none; font-weight: 600; color: var(--ink); }
 .site-nav .nav-cta { background: var(--accent); color: var(--on-accent); padding: .55rem 1rem; border-radius: 3px; font-weight: 600; }
 .site-nav .nav-cta:hover { background: var(--accent-ink); color: var(--on-accent); }
 .site-nav .nav-cta::after { display: none; }

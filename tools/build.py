@@ -3,7 +3,7 @@
 Run:  python tools/build.py
 Writes plain, hand-editable HTML into site/. Content lives in this file (pages)
 and tools/pubdata.py (publications, shared with matthewdhanson.com).
-Rules: never spell out the ANCHOR acronym; no URI logos; no student names,
+Rules: ANCHOR is spelled out as EXPANSION below (working name; may change); no URI logos; no student names,
 photos, or partner names without written permission.
 """
 from pathlib import Path
@@ -18,13 +18,21 @@ EMAIL = "matthew.hanson@uri.edu"
 PERSONAL = "https://matthewdhanson.com"
 YEAR = 2026
 UPDATED = "October 2026"
-PLAUSIBLE = ""   # set to the lab site's Plausible script URL (https://plausible.io/js/pa-....js) once created
+PLAUSIBLE = "https://plausible.io/js/pa-GkYF17wRYqotwuI0Cg_Py.js"   # setup line lives in site.js (CSP-safe)
+EXPANSION = "Awareness, Needs, and Competencies for Human and Organizational Resources"
 
+# Anchor mark, modeled on the plain anchor of Rhode Island's flag and seal: ring,
+# stock with ball ends (accent color), shank, curved arms with flukes, crown point.
 MARK = ('<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">'
-        '<g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="miter">'
-        '<path d="M6 27 L16 5 L26 27" stroke-width="3.2"/>'
-        '<path class="mk-datum" d="M2 19.5 H30" stroke-width="2.4"/></g>'
-        '<circle cx="16" cy="26" r="2.4" fill="currentColor"/></svg>')
+        '<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">'
+        '<circle cx="16" cy="4.4" r="2.2" stroke-width="1.9"/>'
+        '<path d="M16 6.6 V27.4" stroke-width="2.6"/>'
+        '<path d="M6.4 20.6 C7.6 25.9 11.4 27.9 16 27.9 C20.6 27.9 24.4 25.9 25.6 20.6" stroke-width="2.3"/></g>'
+        '<g fill="currentColor"><path d="M14.6 27.6 L16 30.6 L17.4 27.6 Z"/>'
+        '<path d="M6 16.4 L9.6 21.6 Q7.4 21.2 6.5 22.9 Q5.4 21.4 3.1 21.9 Z"/>'
+        '<path d="M26 16.4 L22.4 21.6 Q24.6 21.2 25.5 22.9 Q26.6 21.4 28.9 21.9 Z"/></g>'
+        '<g class="mk-datum"><path d="M9.4 10.4 H22.6" stroke-width="2.2" stroke-linecap="round"/>'
+        '<circle cx="8.4" cy="10.4" r="1.55" stroke="none"/><circle cx="23.6" cy="10.4" r="1.55" stroke="none"/></g></svg>')
 
 NAV = [("/research.html", "Research", "research"), ("/people.html", "People", "people"),
        ("/publications.html", "Publications", "publications"), ("/join.html", "Get involved", "join"),
@@ -93,6 +101,7 @@ ANALYTICS_NOTE = ('      <p class="disclaimer">This site uses privacy-friendly, 
 FOOTER = f"""<footer class="site-footer" id="contact">
   <div class="wrap">
     <div>
+      <p class="affil">ANCHOR: {EXPANSION}.</p>
       <p class="affil">The ANCHOR Lab is led by Matthew D. Hanson, Ph.D., Assistant Professor of Human Resource Management, College of Business, University of Rhode Island, Kingston, RI.</p>
       <p>Contact: <a href="mailto:{EMAIL}">{EMAIL}</a> &middot; <a href="{PERSONAL}">matthewdhanson.com</a></p>
       <p class="disclaimer">anchorlab.science is a faculty research-lab website maintained by Dr. Matthew D. Hanson. It is not an official University of Rhode Island website, and views expressed here do not necessarily reflect those of the University of Rhode Island.</p>
@@ -172,7 +181,7 @@ def project_card(p):
 
 # ───────────────────────── Home ─────────────────────────
 jsonld = '\n<script type="application/ld+json">\n' + json.dumps({
-    "@context": "https://schema.org", "@type": "ResearchOrganization", "name": "ANCHOR Lab", "url": URL + "/",
+    "@context": "https://schema.org", "@type": "ResearchOrganization", "name": "ANCHOR Lab", "alternateName": f"{EXPANSION} (ANCHOR) Lab", "url": URL + "/",
     "description": "A research lab at the University of Rhode Island College of Business studying how people are assessed, developed, and supported at work.",
     "parentOrganization": {"@type": "CollegeOrUniversity", "name": "University of Rhode Island"},
     "founder": {"@type": "Person", "name": "Matthew D. Hanson", "url": PERSONAL + "/"},
@@ -187,6 +196,7 @@ home = head("ANCHOR Lab · University of Rhode Island",
     <div>
     <span class="datum" aria-hidden="true"></span>
     <p class="eyebrow">University of Rhode Island &middot; College of Business</p>
+    <p class="expansion"><abbr title="{EXPANSION}">ANCHOR</abbr>: {EXPANSION}</p>
     <h1>Better ways to measure, develop, and support people at work.</h1>
     <p class="lede">The ANCHOR Lab studies fair and accurate assessment, leadership, motivation and recovery, and workplace learning. We do careful science on practical questions, with students as full members of the team.</p>
     <div class="btn-row">
@@ -218,7 +228,7 @@ home = head("ANCHOR Lab · University of Rhode Island",
     <div class="section-label">
       <p class="eyebrow">For students</p>
       <h2 id="students-h">What students do here</h2>
-      <p>Founding cohort: Spring 2027.</p>
+      <p>Our founding cohort starts in Spring 2027 and is full. Applications are open for future cohorts.</p>
     </div>
     <div>
       <p class="prose">Lab members work on real research, from designing a study to presenting what it found. You can join for course credit through MGT 491 (Directed Study) or as a volunteer, and you don&rsquo;t need prior research experience. <strong>New to research? That&rsquo;s who this is for.</strong></p>
@@ -249,8 +259,8 @@ home = head("ANCHOR Lab · University of Rhode Island",
     <div class="split-cta">
       <div>
         <p class="eyebrow">Students</p>
-        <h3>Join the founding cohort</h3>
-        <p>Undergraduate and graduate students from any major are welcome. Applications take about five minutes.</p>
+        <h3>Apply for a future cohort</h3>
+        <p>Our founding cohort is full. Undergraduate and graduate students from any major can apply now for a future cohort; it takes about five minutes.</p>
         <a class="btn btn-primary" href="/join.html#apply">Apply to the lab</a>
       </div>
       <div class="partner">
@@ -326,7 +336,7 @@ people = head("People · ANCHOR Lab", "Meet the ANCHOR Lab team at URI's College
   <div class="wrap">
     <p class="eyebrow">People</p>
     <h1>The team</h1>
-    <p class="lede">The lab is welcoming its founding cohort of student researchers in Spring 2027.</p>
+    <p class="lede">Our founding cohort of student researchers begins in Spring 2027.</p>
   </div>
 </section>
 <section class="section pt-1">
@@ -342,8 +352,8 @@ people = head("People · ANCHOR Lab", "Meet the ANCHOR Lab team at URI's College
       </div>
     </article>
     <div class="cohort">
-      <h2>This could be you</h2>
-      <p>We&rsquo;re building our first team of student researchers. Undergraduate and graduate students from any major are welcome, and no prior research experience is needed.</p>
+      <h2>Join a future cohort</h2>
+      <p>The founding cohort is full, and we&rsquo;ll add student researchers in later cohorts. Undergraduate and graduate students from any major are welcome to apply now, and no prior research experience is needed.</p>
       <a class="btn btn-primary" href="/join.html#apply">Apply to the lab</a>
     </div>
   </div>
@@ -395,7 +405,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
 <main id="main">
 <section class="page-intro">
   <div class="wrap essay-head">
-    <p class="eyebrow">Get involved &middot; Founding cohort, Spring 2027</p>
+    <p class="eyebrow">Get involved &middot; Applications open for future cohorts</p>
     <h1>Join the lab</h1>
     <p class="lede">Lab members work on real research, from designing a study to presenting what it found. Join for course credit through MGT 491 (Directed Study) or as a volunteer. No prior research experience is needed.</p>
     <div class="btn-row"><a class="btn btn-primary" href="#apply">Apply now</a></div>
@@ -446,7 +456,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
 
   <section class="essay-section" id="apply" aria-labelledby="apply-h">
     <h2 id="apply-h">Apply</h2>
-    <p class="muted">The form takes about five minutes. Applications are reviewed on a rolling basis.</p>
+    <p class="muted">Our founding cohort (Spring 2027) is full, so new applications are for future cohorts. The form takes about five minutes, and Dr. Hanson will be in touch as the next cohort takes shape.</p>
 
     <form class="lab-form" name="lab-application" method="POST" action="/join-thanks.html"
           data-netlify="true" netlify-honeypot="company">
@@ -503,10 +513,10 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
           <label for="f-start">When would you like to start? <span class="req">required</span></label>
           <select id="f-start" name="start" required>
             <option value="">Choose one</option>
-            <option>Spring 2027</option>
             <option>Summer 2027</option>
             <option>Fall 2027</option>
-            <option>As soon as possible</option>
+            <option>Spring 2028 or later</option>
+            <option>Whenever there&rsquo;s an opening</option>
           </select>
         </div>
       </div>
@@ -591,7 +601,7 @@ thanks = head("Application received · ANCHOR Lab", "Thanks for applying to the 
   <div class="wrap essay-head">
     <p class="eyebrow">ANCHOR Lab</p>
     <h1>Thanks for applying!</h1>
-    <p class="lede">Your application was received. You&rsquo;ll hear from Dr. Hanson by email, usually within two weeks.</p>
+    <p class="lede">Your application was received. Our founding cohort is full, so Dr. Hanson will email you as the next cohort takes shape.</p>
   </div>
 </section>
 <div class="wrap essay">
