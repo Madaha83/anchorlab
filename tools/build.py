@@ -127,22 +127,22 @@ def write(name, content):
 
 # ───────────────────────── Content ─────────────────────────
 AREAS = [
-    ("assessment", "Assessment and measurement",
+    ("assessment", "Fair and accurate assessment",
      "How do we know a test measures something real, and treats people fairly?",
      "Organizations make hiring, development, and promotion decisions based on assessments, so those tools need to work. We build and evaluate them: defining what good performance looks like, writing items that capture it, and testing whether scores are reliable, valid, and fair across groups. This work grows out of Dr. Hanson's experience building assessments for military organizations, and the lab now asks the same questions in public-sector and business settings.",
      ["Do leader assessment scores predict later performance equally well for different groups?",
       "How do design and recruitment choices affect data quality and whose experiences are represented?"]),
-    ("leadership", "Leadership competencies and feedback",
+    ("leadership", "Leadership competencies and AI-assisted feedback",
      "What does good leadership look like in a given role, and can AI help people develop it?",
      "“Good leadership” looks different from one role to the next. Defining role-specific competencies first is what makes later selection and feedback defensible. We study how competency models are built and validated, and how assessment feedback can serve as a development tool, not only a gate. A newer thread asks whether large language models, paired with validated assessments, can give personalized feedback to many more people without lowering the standards that make it trustworthy.",
      ["Can conversational AI administer an assessment and give feedback that is accurate and useful?",
       "Can AI help translate competency models into practical guidance, such as resume advice for service members moving into civilian careers?"]),
-    ("needs", "Psychological needs and recovery",
+    ("needs", "Motivation, needs, and recovery",
      "Can a good life outside work make up for needs that go unmet at work?",
-     "Self-determination theory holds that people need autonomy, competence, and relatedness. We study how meeting those needs, at work and away from it, shapes motivation, burnout, recovery, and well-being. Dr. Hanson's dissertation found that need satisfaction outside work predicted better recovery overall, but it did not make up for the specific needs that work left unmet. The lab extends this to work design, management practices, and recovery in demanding jobs.",
+     "Self-determination theory holds that people need autonomy, competence, and relatedness. We study how meeting those needs, at work and away from it, shapes motivation, burnout, recovery, and well-being. Dr. Hanson's dissertation found that need satisfaction outside work predicted better recovery overall, but it did not make up for the specific needs that work left unmet. The lab is now testing that question day by day in a daily diary study, and extending it to work design, management practices, and recovery in demanding jobs.",
      ["Which features of work design best support autonomy, competence, and connection?",
       "How do need satisfaction and motivation relate to burnout in high-demand occupations?"]),
-    ("learning", "Learning and resilience",
+    ("learning", "Training and workplace learning",
      "What keeps attention on the task when learning happens on a screen and nobody is watching?",
      "A growing share of workplace learning is self-paced and online, where distraction is the default. We study how attention, mindfulness, and self-regulation shape what people take away from training, and what helps people adapt under pressure. Earlier work showed that off-task attention is especially costly in self-directed learning. The lab builds on a published model of “mindful training” and tests its limits: when, and for whom, these approaches improve learning.",
      ["Does mindfulness help training because of the practice itself, or because of the label?",
@@ -152,8 +152,8 @@ AREAS = [
 PROJECTS = [
     ("Practice, label, or placebo? Mindfulness in training", "learning", "review", "Under review",
      "A 2×2 experiment in an air traffic control simulation that separates the effects of actual mindfulness practice from simply calling an activity “mindfulness.”", None),
-    ("Need satisfaction across life domains", "needs", "review", "Under review",
-     "A time-lagged survey study testing whether meeting psychological needs outside work can make up for needs unmet at work.", None),
+    ("Need satisfaction at work and away from it", "needs", "dev", "In progress",
+     "A two-study project on whether meeting psychological needs outside work can make up for needs unmet at work. Study 1, a time-lagged survey, is being revised. Study 2, a daily diary study built with lab students, is in preparation for ethics review.", None),
     ("AI-assisted assessment and feedback", "leadership", "dev", "In development",
      "Building on a proof-of-concept platform, this project will test whether large language models paired with validated assessments can give accurate, personalized developmental feedback at scale.", None),
     ("Validity and fairness in leader assessment", "assessment", "dev", "In development",
@@ -228,10 +228,10 @@ home = head("ANCHOR Lab · University of Rhode Island",
     <div class="section-label">
       <p class="eyebrow">For students</p>
       <h2 id="students-h">What students do here</h2>
-      <p>Our founding cohort starts in Spring 2027 and is full. Applications are open for future cohorts.</p>
+      <p>Our founding cohort joined in Fall 2026. Applications are open for future cohorts.</p>
     </div>
     <div>
-      <p class="prose">Lab members work on real research, from designing a study to presenting what it found. You can join for course credit through MGT 491 (Directed Study) or as a volunteer, and you don&rsquo;t need prior research experience. <strong>New to research? That&rsquo;s who this is for.</strong></p>
+      <p class="prose">Lab members work on real research, from designing a study to presenting what it found. You can join for 1 to 3 credits a semester through MGT 491 (fall) or MGT 492 (spring) Directed Study, or as a volunteer, and you don&rsquo;t need prior research experience. <strong>New to research? That&rsquo;s who this is for.</strong></p>
       <ul class="skills">
         <li><strong>Design studies</strong><span>Build surveys and experiments on leadership, motivation, and training.</span></li>
         <li><strong>Work with data</strong><span>Collect, clean, and analyze data in R or SPSS.</span></li>
@@ -260,7 +260,7 @@ home = head("ANCHOR Lab · University of Rhode Island",
       <div>
         <p class="eyebrow">Students</p>
         <h3>Apply for a future cohort</h3>
-        <p>Our founding cohort is full. Undergraduate and graduate students from any major can apply now for a future cohort; it takes about five minutes.</p>
+        <p>Our founding cohort is in place. Undergraduate and graduate students from any major can apply now for a future cohort; it takes about five minutes.</p>
         <a class="btn btn-primary" href="/join.html#apply">Apply to the lab</a>
       </div>
       <div class="partner">
@@ -336,7 +336,7 @@ people = head("People · ANCHOR Lab", "Meet the ANCHOR Lab team at URI's College
   <div class="wrap">
     <p class="eyebrow">People</p>
     <h1>The team</h1>
-    <p class="lede">Our founding cohort of student researchers begins in Spring 2027.</p>
+    <p class="lede">Our founding cohort of student researchers joined in Fall 2026.</p>
   </div>
 </section>
 <section class="section pt-1">
@@ -353,7 +353,7 @@ people = head("People · ANCHOR Lab", "Meet the ANCHOR Lab team at URI's College
     </article>
     <div class="cohort">
       <h2>Join a future cohort</h2>
-      <p>The founding cohort is full, and we&rsquo;ll add student researchers in later cohorts. Undergraduate and graduate students from any major are welcome to apply now, and no prior research experience is needed.</p>
+      <p>Our founding cohort is in place, and we&rsquo;ll add student researchers in later cohorts. Undergraduate and graduate students from any major are welcome to apply now, and no prior research experience is needed.</p>
       <a class="btn btn-primary" href="/join.html#apply">Apply to the lab</a>
     </div>
   </div>
@@ -400,14 +400,14 @@ def faq(q, a):
     return f"      <details><summary>{q}</summary><p>{a}</p></details>"
 
 
-join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate students can join the ANCHOR Lab for MGT 491 credit or as volunteers. No experience needed.",
+join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate students can join the ANCHOR Lab for MGT 491/492 directed-study credit or as volunteers. No experience needed.",
             "join") + header("join") + f"""
 <main id="main">
 <section class="page-intro">
   <div class="wrap essay-head">
     <p class="eyebrow">Get involved &middot; Applications open for future cohorts</p>
     <h1>Join the lab</h1>
-    <p class="lede">Lab members work on real research, from designing a study to presenting what it found. Join for course credit through MGT 491 (Directed Study) or as a volunteer. No prior research experience is needed.</p>
+    <p class="lede">Lab members work on real research, from designing a study to presenting what it found. Join for 1 to 3 credits a semester through MGT 491 (fall) or MGT 492 (spring) Directed Study, or as a volunteer. No prior research experience is needed.</p>
     <div class="btn-row"><a class="btn btn-primary" href="#apply">Apply now</a></div>
   </div>
 </section>
@@ -426,7 +426,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
   <section class="essay-section" aria-labelledby="sem-h">
     <h2 id="sem-h">A typical first semester</h2>
     <ol class="roadmap">
-      <li><span class="wk">Weeks 1&ndash;3</span><span>Lab onboarding and research-ethics training for working with study data</span></li>
+      <li><span class="wk">Weeks 1&ndash;3</span><span>Lab onboarding and CITI research-ethics training, completed before you work on any study or data</span></li>
       <li><span class="wk">Weeks 4&ndash;8</span><span>Read up on a project&rsquo;s topic and help build a survey or study materials</span></li>
       <li><span class="wk">Weeks 9&ndash;12</span><span>Help collect or clean data and learn to analyze it</span></li>
       <li><span class="wk">Weeks 13&ndash;15</span><span>Present what you worked on at a lab meeting</span></li>
@@ -438,7 +438,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
     <h2 id="gain-h">What you&rsquo;ll gain</h2>
     <ul>
       <li><strong>Skills</strong> in research design, survey and assessment development, data management, statistics, and clear scientific writing</li>
-      <li><strong>Course credit</strong> through MGT 491 (Directed Study), if you choose</li>
+      <li><strong>Course credit</strong>, if you choose: 1 to 3 credits a semester through MGT 491 (fall) or MGT 492 (spring) Directed Study, up to 6 credits in total</li>
       <li><strong>Experience presenting</strong> research, with opportunities to contribute to posters and presentations. Members who make a substantial contribution are credited as co-authors.</li>
       <li><strong>A mentor</strong> who knows your work well. Members who contribute for two or more semesters can ask for a detailed letter of recommendation.</li>
     </ul>
@@ -447,7 +447,8 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
   <section class="essay-section faq" aria-labelledby="faq-h">
     <h2 id="faq-h">Questions</h2>
 {faq("Do I need research experience?", "No. Curiosity, reliability, and attention to detail matter most. We&rsquo;ll teach you the rest.")}
-{faq("What is MGT 491 (Directed Study)?", "An independent course you take with Dr. Hanson, built around your lab work, instead of a regular class. If you choose credit, we&rsquo;ll walk you through the short directed-study form together before the add/drop deadline. Volunteering involves the same work without the course.")}
+{faq("How does course credit work?", "Lab work counts as a directed study with Dr. Hanson: MGT 491 in the fall and MGT 492 in the spring. You can take 1 to 3 credits a semester, up to 6 credits in total. If you choose credit, we&rsquo;ll walk you through the short directed-study form together before the add/drop deadline. You can also volunteer, which involves the same work without the course.")}
+{faq("Is there training before I start?", "Yes. One of the first things every member does is CITI training in research ethics and human-subjects protection. It is completed before anyone works on a study or with data.")}
 {faq("Can I do this if I work or have a busy schedule?", "Yes. Most tasks can be done on your own time, and lab meetings are scheduled around members&rsquo; availability. Tell us your constraints on the form; they won&rsquo;t count against you.")}
 {faq("Can graduate students join?", "Yes. Master&rsquo;s, MBA, and doctoral students interested in research collaboration are welcome to apply.")}
 {faq("How much time does it take?", "Plan on at least 3 to 5 hours a week during the semester. Some members commit more for a larger role on a project.")}
@@ -456,7 +457,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
 
   <section class="essay-section" id="apply" aria-labelledby="apply-h">
     <h2 id="apply-h">Apply</h2>
-    <p class="muted">Our founding cohort (Spring 2027) is full, so new applications are for future cohorts. The form takes about five minutes, and Dr. Hanson will be in touch as the next cohort takes shape.</p>
+    <p class="muted">Our founding cohort joined in Fall 2026, so new applications are for future cohorts. The form takes about five minutes, and Dr. Hanson will be in touch as the next cohort takes shape.</p>
 
     <form class="lab-form" name="lab-application" method="POST" action="/join-thanks.html"
           data-netlify="true" netlify-honeypot="company">
@@ -513,7 +514,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
           <label for="f-start">When would you like to start? <span class="req">required</span></label>
           <select id="f-start" name="start" required>
             <option value="">Choose one</option>
-            <option>Summer 2027</option>
+            <option>Spring 2027</option>
             <option>Fall 2027</option>
             <option>Spring 2028 or later</option>
             <option>Whenever there&rsquo;s an opening</option>
@@ -532,7 +533,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
         <fieldset class="field">
           <legend>How would you like to participate? <span class="req">required</span></legend>
           <div class="opts">
-{options("participation", [("For credit (MGT 491)", "For credit (MGT 491 Directed Study)"), ("Volunteer", "Volunteer"), ("Either", "Either")], kind="radio", required=True)}
+{options("participation", [("For credit (MGT 491/492)", "For credit (MGT 491 fall / MGT 492 spring, 1&ndash;3 credits)"), ("Volunteer", "Volunteer"), ("Either", "Either")], kind="radio", required=True)}
           </div>
         </fieldset>
         <div class="field">
@@ -601,7 +602,7 @@ thanks = head("Application received · ANCHOR Lab", "Thanks for applying to the 
   <div class="wrap essay-head">
     <p class="eyebrow">ANCHOR Lab</p>
     <h1>Thanks for applying!</h1>
-    <p class="lede">Your application was received. Our founding cohort is full, so Dr. Hanson will email you as the next cohort takes shape.</p>
+    <p class="lede">Your application was received. Our founding cohort is in place, so Dr. Hanson will email you as the next cohort takes shape.</p>
   </div>
 </section>
 <div class="wrap essay">
@@ -609,8 +610,8 @@ thanks = head("Application received · ANCHOR Lab", "Thanks for applying to the 
     <h2 id="next-h">What happens next</h2>
     <ol>
       <li>A short conversation to talk about your interests and current projects.</li>
-      <li>If you&rsquo;re joining for credit, a MGT 491 directed-study form, signed before the add/drop deadline.</li>
-      <li>Onboarding, including research-ethics training before you work with study data.</li>
+      <li>If you&rsquo;re joining for credit, a directed-study form (MGT 491 in fall, MGT 492 in spring), signed before the add/drop deadline.</li>
+      <li>Onboarding, starting with CITI research-ethics training, completed before you work on any study or data.</li>
     </ol>
     <p>Questions in the meantime? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
     <div class="btn-row"><a class="btn btn-secondary" href="/research.html">Explore our research</a></div>

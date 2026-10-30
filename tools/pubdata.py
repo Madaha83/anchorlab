@@ -1,4 +1,5 @@
 """Publication data and list helpers, copied from matthewdhanson.com (tools/build.py).
+The Saturday website-sync routine copies the lists over whenever they differ.
 Keep in sync when publications change."""
 import re
 
@@ -35,8 +36,6 @@ REPORTS = [
 ]
 REVIEW = [
     dict(authors="Hanson, M. D., Randall, J. G., & Banfi, J. T.", title="Practice, label, or placebo? An experimental test of mindfulness effects in organizational training"),
-    dict(authors="Hanson, M. D., Randall, J. G., & Banfi, J. T.", title="Basic psychological need satisfaction across life domains: Implications for work recovery and well-being"),
-    dict(authors="Hanson, M. D., & Hong, P. Y.", title="Brief focused-attention and open-monitoring mindfulness meditation: A randomized controlled experiment on mindfulness, anxiety, affect, and attention"),
     dict(authors="Hong, P. Y., Hanson, M. D., Lishner, D. A., Kelso, S., & Steinert, S.", title="A randomized field experiment examining the effect of mindfulness on children&rsquo;s, parents&rsquo;, and teachers&rsquo; ratings of children&rsquo;s mood and behavior"),
 ]
 TALKS = [
