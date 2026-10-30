@@ -1,4 +1,8 @@
-# Netlify config for anchorlab.science (publish directory: site/)
+# Netlify config for anchorlab.science
+
+[build]
+  publish = "site"
+  command = ""
 
 [[headers]]
   for = "/*"
