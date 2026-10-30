@@ -104,9 +104,9 @@ def group(gid, gtype, label, items, status=None, collapse=False):
     lis = "\n".join(pub_li(p, status) for p in items)
     ul = f'<ol class="pub-list">\n{lis}\n</ol>'
     if collapse:
-        ul = f'<details class="more-pubs"><summary>Show all {len(items)}</summary>\n{ul}\n</details>'
+        ul = f'<details class="more-pubs"><summary>Show all {len(items)} {label.lower()}</summary>\n{ul}\n</details>'
     return f"""<section class="pub-group" data-type="{gtype}" aria-labelledby="{gid}">
-  <h2 id="{gid}">{label} <span class="count">{len(items)}<span class="visually-hidden"> items</span></span></h2>
+  <h2 id="{gid}">{label} <span class="count">{len(items)}<span class="visually-hidden"> {"item" if len(items) == 1 else "items"}</span></span></h2>
   {ul}
 </section>"""
 

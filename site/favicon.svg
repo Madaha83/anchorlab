@@ -1,14 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <style>
-    .bg { fill: #13466E; } .fg { stroke: #FCFDFC; } .dot { fill: #FCFDFC; } .datum { stroke: #F08F5E; }
-    @media (prefers-color-scheme: dark) {
-      .bg { fill: #7DB6DA; } .fg { stroke: #0A1520; } .dot { fill: #0A1520; } .datum { stroke: #0A1520; }
-    }
-  </style>
-  <rect class="bg" width="32" height="32" rx="7"/>
+  <rect width="32" height="32" rx="7" fill="#13466E"/>
   <g fill="none" stroke-linecap="square">
-    <path class="fg" d="M8 26 L16 6.5 L24 26" stroke-width="3.4"/>
-    <path class="datum" d="M4.5 19.5 H27.5" stroke-width="2.6"/>
+    <path d="M8 26 L16 6.5 L24 26" stroke="#FCFDFC" stroke-width="3.4"/>
+    <path d="M4.5 19.5 H27.5" stroke="#F08F5E" stroke-width="2.6"/>
   </g>
-  <circle class="dot" cx="16" cy="25" r="2.4"/>
+  <circle cx="16" cy="25" r="2.4" fill="#FCFDFC"/>
 </svg>

@@ -26,13 +26,14 @@ MARK = ('<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">'
         '<path class="mk-datum" d="M2 19.5 H30" stroke-width="2.4"/></g>'
         '<circle cx="16" cy="26" r="2.4" fill="currentColor"/></svg>')
 
-NAV = [("research.html", "Research", "research"), ("people.html", "People", "people"),
-       ("publications.html", "Publications", "publications"), ("join.html", "Get involved", "join"),
-       ("partners.html", "Partners", "partners")]
+NAV = [("/research.html", "Research", "research"), ("/people.html", "People", "people"),
+       ("/publications.html", "Publications", "publications"), ("/join.html", "Get involved", "join"),
+       ("/partners.html", "Partners", "partners")]
 
 
 def head(title, desc, path, extra=""):
     canonical = URL + ("/" if path == "" else "/" + path)
+    noindex = "noindex" in extra
     plausible = f'\n<script async src="{PLAUSIBLE}"></script>' if PLAUSIBLE else ""
     return f"""<!doctype html>
 <html lang="en">
@@ -41,12 +42,12 @@ def head(title, desc, path, extra=""):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{html.escape(desc)}">
-<link rel="canonical" href="{canonical}">
+{"" if noindex else f'<link rel="canonical" href="{canonical}">'}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ANCHOR Lab">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
-<meta property="og:url" content="{canonical}">
+{"" if noindex else f'<meta property="og:url" content="{canonical}">'}
 <meta property="og:image" content="{URL}/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -54,13 +55,13 @@ def head(title, desc, path, extra=""):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F3F5F4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0A1520" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap">
-<link rel="stylesheet" href="style.css">
-<script src="site.js"></script>{plausible}{extra}
+<link rel="stylesheet" href="/style.css">
+<script src="/site.js"></script>{plausible}{extra}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -72,10 +73,10 @@ def header(active):
     for href, label, key in NAV:
         cur = ' aria-current="page"' if key == active else ""
         items.append(f'<li><a href="{href}"{cur}>{label}</a></li>')
-    items.append('<li><a class="nav-cta" href="join.html#apply">Apply</a></li>')
+    items.append('<li><a class="nav-cta" href="/join.html#apply">Apply</a></li>')
     return f"""<header class="site-header">
   <div class="wrap">
-    <a class="wordmark" href="index.html">{MARK}<span>ANCHOR <i>Lab</i></span></a>
+    <a class="wordmark" href="/index.html"{' aria-current="page"' if active == "home" else ""}>{MARK}<span>ANCHOR <i>Lab</i></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Primary">
       <ul>
@@ -87,19 +88,20 @@ def header(active):
 """
 
 
+ANALYTICS_NOTE = ('      <p class="disclaimer">This site uses privacy-friendly, cookie-free analytics; no personal data is collected.</p>\n' if PLAUSIBLE else "")
+
 FOOTER = f"""<footer class="site-footer" id="contact">
   <div class="wrap">
     <div>
       <p class="affil">The ANCHOR Lab is led by Matthew D. Hanson, Ph.D., Assistant Professor of Human Resource Management, College of Business, University of Rhode Island, Kingston, RI.</p>
       <p>Contact: <a href="mailto:{EMAIL}">{EMAIL}</a> &middot; <a href="{PERSONAL}">matthewdhanson.com</a></p>
       <p class="disclaimer">anchorlab.science is a faculty research-lab website maintained by Dr. Matthew D. Hanson. It is not an official University of Rhode Island website, and views expressed here do not necessarily reflect those of the University of Rhode Island.</p>
-      <p class="disclaimer">This site uses privacy-friendly, cookie-free analytics; no personal data is collected.</p>
-    </div>
+{ANALYTICS_NOTE}    </div>
     <ul>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="people.html">People</a></li>
-      <li><a href="join.html">Get involved</a></li>
-      <li><a href="partners.html">Partners</a></li>
+      <li><a href="/research.html">Research</a></li>
+      <li><a href="/people.html">People</a></li>
+      <li><a href="/join.html">Get involved</a></li>
+      <li><a href="/partners.html">Partners</a></li>
     </ul>
     <p>&copy; {YEAR} ANCHOR Lab &middot; Updated {UPDATED}</p>
   </div>
@@ -174,7 +176,7 @@ jsonld = '\n<script type="application/ld+json">\n' + json.dumps({
     "description": "A research lab at the University of Rhode Island College of Business studying how people are assessed, developed, and supported at work.",
     "parentOrganization": {"@type": "CollegeOrUniversity", "name": "University of Rhode Island"},
     "founder": {"@type": "Person", "name": "Matthew D. Hanson", "url": PERSONAL + "/"},
-    "email": "mailto:" + EMAIL}, indent=1) + "\n</script>"
+    "email": EMAIL}, indent=1) + "\n</script>"
 
 home = head("ANCHOR Lab · University of Rhode Island",
             "The ANCHOR Lab at URI studies how people are assessed, developed, and supported at work, with students as full members of the research team.",
@@ -188,8 +190,8 @@ home = head("ANCHOR Lab · University of Rhode Island",
     <h1>Better ways to measure, develop, and support people at work.</h1>
     <p class="lede">The ANCHOR Lab studies fair and accurate assessment, leadership, motivation and recovery, and workplace learning. We do careful science on practical questions, with students as full members of the team.</p>
     <div class="btn-row">
-      <a class="btn btn-primary" href="join.html#apply">Apply to the lab</a>
-      <a class="btn btn-secondary" href="partners.html">Partner with us</a>
+      <a class="btn btn-primary" href="/join.html#apply">Apply to the lab</a>
+      <a class="btn btn-secondary" href="/partners.html">Partner with us</a>
     </div>
     </div>
     <div class="hero-mark">{MARK}</div>
@@ -205,7 +207,7 @@ home = head("ANCHOR Lab · University of Rhode Island",
         <span class="num">0{i + 1}</span>
         <h3>{name}</h3>
         <p class="q">{q}</p>
-        <a class="more" href="research.html#{key}">Projects &rarr;</a>
+        <a class="more" href="/research.html#{key}">Projects &rarr;</a>
       </article>""" for i, (key, name, q, *_rest) in enumerate(AREAS)) + f"""
     </div>
   </div>
@@ -219,13 +221,13 @@ home = head("ANCHOR Lab · University of Rhode Island",
       <p>Founding cohort: Spring 2027.</p>
     </div>
     <div>
-      <p class="prose">Lab members work on real research, from designing a study to presenting what it found. You can join for course credit through MGT 491 (Directed Study) or as a volunteer, and you don&rsquo;t need prior research experience.</p>
+      <p class="prose">Lab members work on real research, from designing a study to presenting what it found. You can join for course credit through MGT 491 (Directed Study) or as a volunteer, and you don&rsquo;t need prior research experience. <strong>New to research? That&rsquo;s who this is for.</strong></p>
       <ul class="skills">
         <li><strong>Design studies</strong><span>Build surveys and experiments on leadership, motivation, and training.</span></li>
         <li><strong>Work with data</strong><span>Collect, clean, and analyze data in R or SPSS.</span></li>
         <li><strong>Share findings</strong><span>Help prepare posters, presentations, and papers.</span></li>
       </ul>
-      <div class="btn-row"><a class="btn btn-primary" href="join.html#apply">Apply to the lab</a> <a class="btn btn-secondary" href="join.html">How it works</a></div>
+      <div class="btn-row"><a class="btn btn-primary" href="/join.html#apply">Apply to the lab</a> <a class="btn btn-secondary" href="/join.html">How it works</a></div>
     </div>
   </div>
 </section>
@@ -237,7 +239,7 @@ home = head("ANCHOR Lab · University of Rhode Island",
     <div class="project-grid">
 {chr(10).join(project_card(p) for p in PROJECTS[:4])}
     </div>
-    <p><a class="more" href="research.html">All research &rarr;</a></p>
+    <p><a class="more" href="/research.html">All research &rarr;</a></p>
   </div>
 </section>
 
@@ -249,13 +251,13 @@ home = head("ANCHOR Lab · University of Rhode Island",
         <p class="eyebrow">Students</p>
         <h3>Join the founding cohort</h3>
         <p>Undergraduate and graduate students from any major are welcome. Applications take about five minutes.</p>
-        <a class="btn btn-primary" href="join.html#apply">Apply to the lab</a>
+        <a class="btn btn-primary" href="/join.html#apply">Apply to the lab</a>
       </div>
       <div class="partner">
         <p class="eyebrow">Organizations</p>
         <h3>Let&rsquo;s study what works</h3>
         <p>We work with Rhode Island employers and public agencies on questions about selection, development, and well-being.</p>
-        <a class="btn btn-secondary" href="partners.html">Partner with us</a>
+        <a class="btn btn-secondary" href="/partners.html">Partner with us</a>
       </div>
     </div>
   </div>
@@ -263,15 +265,15 @@ home = head("ANCHOR Lab · University of Rhode Island",
 
 <section class="section" aria-labelledby="dir-h">
   <div class="wrap">
-    <p class="eyebrow">Lab director</p>
+    <p class="eyebrow" aria-hidden="true">Lab director</p>
     <h2 id="dir-h" class="visually-hidden">Lab director</h2>
     <article class="person">
-      <img src="hanson-480.jpg" width="480" height="600" alt="Matthew D. Hanson" loading="lazy" decoding="async">
+      <img src="/hanson-480.jpg" width="480" height="600" alt="Matthew D. Hanson" loading="lazy" decoding="async">
       <div>
         <h3>Matthew D. Hanson, Ph.D.</h3>
         <p class="role">Lab Director</p>
-        <p>Fred &rsquo;78 and Sue Newton Assistant Professor of Human Resource Management, College of Business, University of Rhode Island. He studies how organizations assess, develop, and support people.</p>
-        <p><a href="people.html">More about the team &rarr;</a> &middot; <a href="{PERSONAL}">Personal website</a></p>
+        <p>Assistant Professor of Human Resource Management, College of Business, University of Rhode Island. He studies how organizations assess, develop, and support people.</p>
+        <p><a href="/people.html">More about the team &rarr;</a> &middot; <a href="{PERSONAL}">Personal website</a></p>
       </div>
     </article>
   </div>
@@ -308,7 +310,7 @@ research = head("Research · ANCHOR Lab", "Research on fair assessment, leadersh
   <div class="wrap">
     <p class="eyebrow">Research</p>
     <h1>Careful science on practical questions about people at work.</h1>
-    <p class="lede">Our projects use experiments, longitudinal surveys, psychometrics, and data science. Studies involving people are reviewed by URI&rsquo;s Institutional Review Board.</p>
+    <p class="lede">We run experiments and surveys, build and test assessments, and analyze data. Every study with people is approved by URI&rsquo;s research ethics board (the IRB) before it begins.</p>
   </div>
 </section>
 {chr(10).join(area_section(i, a) for i, a in enumerate(AREAS))}
@@ -330,9 +332,9 @@ people = head("People · ANCHOR Lab", "Meet the ANCHOR Lab team at URI's College
 <section class="section pt-1">
   <div class="wrap">
     <article class="person">
-      <img src="hanson-480.jpg" width="480" height="600" alt="Matthew D. Hanson" loading="lazy" decoding="async">
+      <img src="/hanson-480.jpg" width="480" height="600" alt="Matthew D. Hanson" loading="lazy" decoding="async">
       <div>
-        <h3>Matthew D. Hanson, Ph.D.</h3>
+        <h2>Matthew D. Hanson, Ph.D.</h2>
         <p class="role">Lab Director</p>
         <p>Matthew Hanson is the Fred &rsquo;78 and Sue Newton Assistant Professor of Human Resource Management in URI&rsquo;s College of Business, where he directs the ANCHOR Lab and co-directs the College of Business Behavioral Lab. He studies how organizations assess, develop, and support people, with a focus on leadership assessment, training, and motivation and recovery.</p>
         <p>Before joining URI in 2026, he was a research psychologist with the U.S. Army, where he led the development and validation of leadership assessments. Earlier, with Leidos at the Naval Submarine Medical Research Laboratory, he studied assessment, burnout, and training success among submariners. He earned his Ph.D. in industrial-organizational psychology from the University at Albany, SUNY.</p>
@@ -340,9 +342,9 @@ people = head("People · ANCHOR Lab", "Meet the ANCHOR Lab team at URI's College
       </div>
     </article>
     <div class="cohort">
-      <h3>This could be you</h3>
+      <h2>This could be you</h2>
       <p>We&rsquo;re building our first team of student researchers. Undergraduate and graduate students from any major are welcome, and no prior research experience is needed.</p>
-      <a class="btn btn-primary" href="join.html#apply">Apply to the lab</a>
+      <a class="btn btn-primary" href="/join.html#apply">Apply to the lab</a>
     </div>
   </div>
 </section>
@@ -427,25 +429,26 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
     <ul>
       <li><strong>Skills</strong> in research design, survey and assessment development, data management, statistics, and clear scientific writing</li>
       <li><strong>Course credit</strong> through MGT 491 (Directed Study), if you choose</li>
-      <li><strong>Experience presenting</strong> research, with opportunities to contribute to posters and presentations</li>
-      <li><strong>A mentor</strong> who knows your work well enough to write a specific letter of recommendation after sustained contribution</li>
+      <li><strong>Experience presenting</strong> research, with opportunities to contribute to posters and presentations. Members who make a substantial contribution are credited as co-authors.</li>
+      <li><strong>A mentor</strong> who knows your work well. Members who contribute for two or more semesters can ask for a detailed letter of recommendation.</li>
     </ul>
   </section>
 
   <section class="essay-section faq" aria-labelledby="faq-h">
     <h2 id="faq-h">Questions</h2>
 {faq("Do I need research experience?", "No. Curiosity, reliability, and attention to detail matter most. We&rsquo;ll teach you the rest.")}
-{faq("What&rsquo;s the difference between credit and volunteering?", "The work is the same. MGT 491 earns course credit and requires a directed-study form signed before the add/drop deadline. Volunteering doesn&rsquo;t.")}
+{faq("What is MGT 491 (Directed Study)?", "An independent course you take with Dr. Hanson, built around your lab work, instead of a regular class. If you choose credit, we&rsquo;ll walk you through the short directed-study form together before the add/drop deadline. Volunteering involves the same work without the course.")}
+{faq("Can I do this if I work or have a busy schedule?", "Yes. Most tasks can be done on your own time, and lab meetings are scheduled around members&rsquo; availability. Tell us your constraints on the form; they won&rsquo;t count against you.")}
 {faq("Can graduate students join?", "Yes. Master&rsquo;s, MBA, and doctoral students interested in research collaboration are welcome to apply.")}
 {faq("How much time does it take?", "Plan on at least 3 to 5 hours a week during the semester. Some members commit more for a larger role on a project.")}
-{faq("How are students selected?", "Dr. Hanson reads every application and replies by email. We look for interest in the research, reliability, and fit with current projects, not grades.")}
+{faq("How are students selected?", "Dr. Hanson reads every application and replies by email. We look for curiosity and reliability, not grades or experience, and we&rsquo;ll match you to a project based on your interests.")}
   </section>
 
   <section class="essay-section" id="apply" aria-labelledby="apply-h">
     <h2 id="apply-h">Apply</h2>
     <p class="muted">The form takes about five minutes. Applications are reviewed on a rolling basis.</p>
 
-    <form class="lab-form" name="lab-application" method="POST" action="join-thanks.html"
+    <form class="lab-form" name="lab-application" method="POST" action="/join-thanks.html"
           data-netlify="true" netlify-honeypot="company">
       <input type="hidden" name="form-name" value="lab-application">
       <p class="hp" aria-hidden="true"><label>Leave this empty: <input name="company" tabindex="-1" autocomplete="off"></label></p>
@@ -457,7 +460,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
         </div>
         <div class="field">
           <label for="f-goes">Name you go by</label>
-          <input id="f-goes" name="preferred_name" type="text" maxlength="60">
+          <input id="f-goes" name="preferred_name" type="text" maxlength="60" autocomplete="nickname">
         </div>
       </div>
 
@@ -465,8 +468,8 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
         <div class="field">
           <label for="f-email">URI email <span class="req">required</span></label>
           <input id="f-email" name="email" type="email" autocomplete="email" required
-                 pattern="[^@\\s]+@(my\\.)?uri\\.edu" title="Please use your @uri.edu or @my.uri.edu address" placeholder="name@uri.edu" aria-describedby="f-email-hint">
-          <p class="hint" id="f-email-hint">Not a URI student? Email <a href="mailto:{EMAIL}">{EMAIL}</a> instead.</p>
+                 pattern="[^@\\s]+@([Mm][Yy]\\.)?[Uu][Rr][Ii]\\.[Ee][Dd][Uu]" title="Please use your @uri.edu or @my.uri.edu address" placeholder="name@uri.edu" aria-describedby="f-email-hint">
+          <p class="hint" id="f-email-hint">Use your @uri.edu or @my.uri.edu address. Not a URI student? Email <a href="mailto:{EMAIL}">{EMAIL}</a> instead.</p>
         </div>
         <div class="field">
           <label for="f-pron">Pronouns</label>
@@ -529,6 +532,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
             <option>3&ndash;5</option>
             <option>6&ndash;9</option>
             <option>10 or more</option>
+            <option>Not sure yet</option>
           </select>
         </div>
       </div>
@@ -558,9 +562,14 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
           </select>
         </div>
         <div class="field">
-          <label for="f-access">Anything that would help you take part fully?</label>
-          <input id="f-access" name="access_needs" type="text" maxlength="300" placeholder="Optional">
+          <label for="f-avail">When are you usually available?</label>
+          <input id="f-avail" name="availability" type="text" maxlength="200" placeholder="Optional, e.g., Tue/Thu afternoons">
         </div>
+      </div>
+
+      <div class="field">
+        <label for="f-access">Scheduling limits, accommodations, or anything else we should know</label>
+        <input id="f-access" name="access_needs" type="text" maxlength="300" placeholder="Optional">
       </div>
 
       <label class="opt consent"><input type="checkbox" name="consent" value="yes" required>
@@ -594,7 +603,7 @@ thanks = head("Application received · ANCHOR Lab", "Thanks for applying to the 
       <li>Onboarding, including research-ethics training before you work with study data.</li>
     </ol>
     <p>Questions in the meantime? Email <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
-    <div class="btn-row"><a class="btn btn-secondary" href="research.html">Explore our research</a></div>
+    <div class="btn-row"><a class="btn btn-secondary" href="/research.html">Explore our research</a></div>
   </section>
 </div>
 </main>
@@ -651,7 +660,7 @@ notfound = head("Page not found · ANCHOR Lab", "That page doesn't exist.", "404
   <div class="wrap essay-head">
     <p class="eyebrow">404</p>
     <h1>That page isn&rsquo;t here.</h1>
-    <p class="lede">Try the <a href="index.html">home page</a>, our <a href="research.html">research</a>, or <a href="join.html">how to join</a>.</p>
+    <p class="lede">Try the <a href="/index.html">home page</a>, our <a href="/research.html">research</a>, or <a href="/join.html">how to join</a>.</p>
   </div>
 </section>
 </main>

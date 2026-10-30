@@ -553,3 +553,11 @@ ul.skills { padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(
   .hero-mark { display: block; color: var(--accent); opacity: .92; }
   .hero-mark svg { width: 100%; height: auto; }
 }
+
+/* QA fixes */
+.faq summary::before { content: "+"; display: inline-block; width: 1.25rem; color: var(--accent); font-weight: 600; }
+.faq details[open] summary::before { content: "\2212"; }
+.lab-form ::placeholder { color: var(--ink-2); opacity: 1; }
+@media (max-width: 759px) { .js .site-nav a { padding: .95rem 0; } }
+.person h2 { font-size: 1.5rem; }
+.cohort h2 { font-size: var(--step-1); }
