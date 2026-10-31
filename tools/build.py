@@ -231,7 +231,7 @@ home = head("ANCHOR Lab · University of Rhode Island",
       <p>Our founding cohort joined in Fall 2026. Applications are open for future cohorts.</p>
     </div>
     <div>
-      <p class="prose">Lab members work on real research, from designing a study to presenting what it found. You can join for 1 to 3 credits a semester through MGT 491 (fall) or MGT 492 (spring) Directed Study, or as a volunteer, and you don&rsquo;t need prior research experience. <strong>New to research? That&rsquo;s who this is for.</strong></p>
+      <p class="prose">Lab members work on real research, from designing a study to presenting what it found. College of Business students can join for 1 to 3 credits a semester through MGT 491 (fall) or MGT 492 (spring) Directed Study, and students from any major can join as volunteers. You don&rsquo;t need prior research experience. <strong>New to research? That&rsquo;s who this is for.</strong></p>
       <ul class="skills">
         <li><strong>Design studies</strong><span>Build surveys and experiments on leadership, motivation, and training.</span></li>
         <li><strong>Work with data</strong><span>Collect, clean, and analyze data in R or SPSS.</span></li>
@@ -400,14 +400,14 @@ def faq(q, a):
     return f"      <details><summary>{q}</summary><p>{a}</p></details>"
 
 
-join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate students can join the ANCHOR Lab for MGT 491/492 directed-study credit or as volunteers. No experience needed.",
+join = head("Get involved · ANCHOR Lab", "URI students from any major can join the ANCHOR Lab as volunteers, and College of Business students can earn MGT 491/492 directed-study credit. No experience needed.",
             "join") + header("join") + f"""
 <main id="main">
 <section class="page-intro">
   <div class="wrap essay-head">
     <p class="eyebrow">Get involved &middot; Applications open for future cohorts</p>
     <h1>Join the lab</h1>
-    <p class="lede">Lab members work on real research, from designing a study to presenting what it found. Join for 1 to 3 credits a semester through MGT 491 (fall) or MGT 492 (spring) Directed Study, or as a volunteer. No prior research experience is needed.</p>
+    <p class="lede">Lab members work on real research, from designing a study to presenting what it found. Credit is available through MGT 491 (fall) or MGT 492 (spring) Directed Study for College of Business students, 1 to 3 credits a semester. Students from any major can join as volunteers. No prior research experience is needed.</p>
     <div class="btn-row"><a class="btn btn-primary" href="#apply">Apply now</a></div>
   </div>
 </section>
@@ -438,7 +438,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
     <h2 id="gain-h">What you&rsquo;ll gain</h2>
     <ul>
       <li><strong>Skills</strong> in research design, survey and assessment development, data management, statistics, and clear scientific writing</li>
-      <li><strong>Course credit</strong>, if you choose: 1 to 3 credits a semester through MGT 491 (fall) or MGT 492 (spring) Directed Study, up to 6 credits in total</li>
+      <li><strong>Course credit</strong>, if you choose and you are a College of Business student: 1 to 3 credits a semester through MGT 491 (fall) or MGT 492 (spring) Directed Study, up to 6 credits in total</li>
       <li><strong>Experience presenting</strong> research, with opportunities to contribute to posters and presentations. Members who make a substantial contribution are credited as co-authors.</li>
       <li><strong>A mentor</strong> who knows your work well. Members who contribute for two or more semesters can ask for a detailed letter of recommendation.</li>
     </ul>
@@ -447,7 +447,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
   <section class="essay-section faq" aria-labelledby="faq-h">
     <h2 id="faq-h">Questions</h2>
 {faq("Do I need research experience?", "No. Curiosity, reliability, and attention to detail matter most. We&rsquo;ll teach you the rest.")}
-{faq("How does course credit work?", "Lab work counts as a directed study with Dr. Hanson: MGT 491 in the fall and MGT 492 in the spring. You can take 1 to 3 credits a semester, up to 6 credits in total. If you choose credit, we&rsquo;ll walk you through the short directed-study form together before the add/drop deadline. You can also volunteer, which involves the same work without the course.")}
+{faq("How does course credit work?", "For College of Business students, lab work counts as a directed study with Dr. Hanson: MGT 491 in the fall and MGT 492 in the spring. You can take 1 to 3 credits a semester, up to 6 credits in total. If you choose credit, we&rsquo;ll walk you through the short directed-study form together before the add/drop deadline. Students from any major can volunteer, which involves the same work without the course.")}
 {faq("Is there training before I start?", "Yes. One of the first things every member does is CITI training in research ethics and human-subjects protection. It is completed before anyone works on a study or with data.")}
 {faq("Can I do this if I work or have a busy schedule?", "Yes. Most tasks can be done on your own time, and lab meetings are scheduled around members&rsquo; availability. Tell us your constraints on the form; they won&rsquo;t count against you.")}
 {faq("Can graduate students join?", "Yes. Master&rsquo;s, MBA, and doctoral students interested in research collaboration are welcome to apply.")}
@@ -533,7 +533,7 @@ join = head("Get involved · ANCHOR Lab", "URI undergraduate and graduate studen
         <fieldset class="field">
           <legend>How would you like to participate? <span class="req">required</span></legend>
           <div class="opts">
-{options("participation", [("For credit (MGT 491/492)", "For credit (MGT 491 fall / MGT 492 spring, 1&ndash;3 credits)"), ("Volunteer", "Volunteer"), ("Either", "Either")], kind="radio", required=True)}
+{options("participation", [("For credit (MGT 491/492)", "For credit (MGT 491 fall / MGT 492 spring, 1&ndash;3 credits; College of Business students)"), ("Volunteer", "Volunteer"), ("Either", "Either")], kind="radio", required=True)}
           </div>
         </fieldset>
         <div class="field">
