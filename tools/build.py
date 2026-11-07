@@ -17,9 +17,9 @@ URL = "https://anchorlab.science"
 EMAIL = "matthew.hanson@uri.edu"
 PERSONAL = "https://matthewdhanson.com"
 YEAR = 2026
-UPDATED = "October 2026"
+UPDATED = "November 2026"
 PLAUSIBLE = "https://plausible.io/js/pa-GkYF17wRYqotwuI0Cg_Py.js"   # setup line lives in site.js (CSP-safe)
-EXPANSION = "Awareness, Needs, and Competencies for Human and Organizational Resources"
+EXPANSION = "Awareness, Needs, and Competencies for Human Organizational Resources"
 
 # Anchor mark, modeled on the plain anchor of Rhode Island's flag and seal: ring,
 # stock with ball ends (accent color), shank, curved arms with flukes, crown point.
@@ -630,7 +630,7 @@ partners = head("Partners · ANCHOR Lab", "Partner with the ANCHOR Lab at URI on
     <p class="eyebrow">Partners</p>
     <h1>Better answers about your people, built on evidence.</h1>
     <p class="lede">We partner with organizations that want to know how well they select, develop, and support their people, including Rhode Island employers, public agencies, and healthcare and defense organizations.</p>
-    <div class="btn-row"><a class="btn btn-primary" href="mailto:{EMAIL}?subject=Research%20partnership%20inquiry">Start a conversation</a></div>
+    <div class="btn-row"><a class="btn btn-primary" href="#talk-h">Start a conversation</a></div>
   </div>
 </section>
 <div class="wrap essay">
@@ -659,6 +659,7 @@ partners = head("Partners · ANCHOR Lab", "Partner with the ANCHOR Lab at URI on
   <section class="essay-section" aria-labelledby="talk-h">
     <h2 id="talk-h">Start a conversation</h2>
     <p>Have a question about your people you&rsquo;d like answered with evidence? Email Dr. Hanson at <a href="mailto:{EMAIL}?subject=Research%20partnership%20inquiry">{EMAIL}</a>.</p>
+    <p class="muted">If the link does not open your email program, copy the address above into a new message. Please include your organization and the question you have in mind.</p>
   </section>
 </div>
 </main>

@@ -447,16 +447,18 @@ details.more-pubs > summary {
 /* ── ANCHOR Lab application form ── */
 .lab-form { margin-top: 1.5rem; display: grid; gap: 1.25rem; }
 .lab-form .hp { position: absolute; left: -9999px; }
-.field-row { display: grid; gap: 1.25rem; }
+.field-row { display: grid; gap: 1.25rem; align-items: start; }
 @media (min-width: 640px) { .field-row { grid-template-columns: 1fr 1fr; } }
-.field { display: grid; gap: .4rem; border: 0; padding: 0; margin: 0; min-width: 0; }
+.field { display: grid; gap: .4rem; align-content: start; border: 0; padding: 0; margin: 0; min-width: 0; }
 .field > label, .field > legend { font-weight: 600; font-size: .9375rem; color: var(--ink); padding: 0; }
 .field .req { font: 500 .75rem/1 var(--sans); color: var(--ink-2); text-transform: uppercase; letter-spacing: .06em; margin-left: .35rem; }
 .field .hint, .lab-form .hint { font-size: .875rem; color: var(--ink-2); font-weight: 400; }
 .lab-form input[type=text], .lab-form input[type=email], .lab-form select, .lab-form textarea {
   font: inherit; color: var(--ink); background: var(--surface);
   border: 1px solid var(--rule-ui); border-radius: 3px; padding: .65rem .75rem; min-height: 44px; width: 100%;
+  line-height: 1.5; box-sizing: border-box;
 }
+.lab-form input[type=text], .lab-form input[type=email], .lab-form select { height: 48px; }
 .lab-form textarea { resize: vertical; }
 .lab-form input:focus-visible, .lab-form select:focus-visible, .lab-form textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .lab-form input:user-invalid, .lab-form select:user-invalid, .lab-form textarea:user-invalid { border-color: var(--terra); }
