@@ -565,3 +565,8 @@ ul.skills { padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(
 @media (max-width: 759px) { .js .site-nav a { padding: .95rem 0; } }
 .person h2 { font-size: 1.5rem; }
 .cohort h2 { font-size: var(--step-1); }
+
+.partner-list { list-style: none; padding: 0; display: grid; gap: .75rem; }
+.partner-list li { display: grid; gap: .2rem; padding: 1rem 1.25rem; background: var(--tint); border-left: 3px solid var(--accent); border-radius: 0 3px 3px 0; }
+.partner-list a { font-weight: 600; }
+.partner-list span { color: var(--ink-2); }

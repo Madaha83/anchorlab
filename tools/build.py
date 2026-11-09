@@ -4,7 +4,7 @@ Run:  python tools/build.py
 Writes plain, hand-editable HTML into site/. Content lives in this file (pages)
 and tools/pubdata.py (publications, shared with matthewdhanson.com).
 Rules: ANCHOR is spelled out as EXPANSION below (working name; may change); no URI logos; no student names,
-photos, or partner names without written permission.
+photos, or partner names without permission (approved partners are listed in PARTNERS).
 """
 from pathlib import Path
 import html, json, re, sys
@@ -33,6 +33,14 @@ MARK = ('<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">'
         '<path d="M26 16.4 L22.4 21.6 Q24.6 21.2 25.5 22.9 Q26.6 21.4 28.9 21.9 Z"/></g>'
         '<g class="mk-datum"><path d="M9.4 10.4 H22.6" stroke-width="2.2" stroke-linecap="round"/>'
         '<circle cx="8.4" cy="10.4" r="1.55" stroke="none"/><circle cx="23.6" cy="10.4" r="1.55" stroke="none"/></g></svg>')
+
+# Partners named on the Partners page. Only add one with the partner's permission,
+# recorded here. (name, url, description, approval note)
+PARTNERS = [
+    ("Talent Lab, Department of Psychology, Portland State University", "https://www.pdx.edu/profile/jason-randall",
+     "Led by Dr. Jason Randall. A research partner on the lab&rsquo;s daily diary study of psychological needs, recovery, and well-being.",
+     "Permission given by Dr. Randall (verbal, reported 2026-11-06); Matthew waived the written-permission rule 2026-11-09."),
+]
 
 NAV = [("/research.html", "Research", "research"), ("/people.html", "People", "people"),
        ("/publications.html", "Publications", "publications"), ("/join.html", "Get involved", "join"),
@@ -634,6 +642,12 @@ partners = head("Partners · ANCHOR Lab", "Partner with the ANCHOR Lab at URI on
   </div>
 </section>
 <div class="wrap essay">
+  <section class="essay-section" aria-labelledby="current-h">
+    <h2 id="current-h">Current partners</h2>
+    <ul class="partner-list">
+""" + "\n".join(f'      <li><a href="{u}">{n}</a><span>{d}</span></li>' for n, u, d, _ in PARTNERS) + f"""
+    </ul>
+  </section>
   <section class="essay-section" aria-labelledby="how-h">
     <h2 id="how-h">How a partnership works</h2>
     <p>Most partnerships start with a question you already have: a selection process you&rsquo;re unsure of, a training program to evaluate, or burnout and turnover to understand.</p>
