@@ -37,8 +37,8 @@ MARK = ('<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">'
 # Partners named on the Partners page. Only add one with the partner's permission,
 # recorded here. (name, url, description, approval note)
 PARTNERS = [
-    ("Talent Lab, Department of Psychology, Portland State University", "https://www.pdx.edu/profile/jason-randall",
-     "Led by Dr. Jason Randall. A research partner on the lab&rsquo;s daily diary study of psychological needs, recovery, and well-being.",
+    ("TALENT Lab, Department of Psychology, Portland State University", "https://talentlabpdx.wixsite.com/home",
+     "The Talent Assessment, Learning, and Engagement Lab, led by Dr. Jason Randall. A research partner on the lab&rsquo;s daily diary study of psychological needs, recovery, and well-being.",
      "Permission given by Dr. Randall (verbal, reported 2026-11-06); Matthew waived the written-permission rule 2026-11-09."),
 ]
 
