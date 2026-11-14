@@ -36,7 +36,6 @@ REPORTS = [
 ]
 REVIEW = [
     dict(authors="Hanson, M. D., Randall, J. G., & Banfi, J. T.", title="Practice, label, or placebo? An experimental test of mindfulness effects in organizational training"),
-    dict(authors="Hong, P. Y., Hanson, M. D., Lishner, D. A., Kelso, S., & Steinert, S.", title="A randomized field experiment examining the effect of mindfulness on children&rsquo;s, parents&rsquo;, and teachers&rsquo; ratings of children&rsquo;s mood and behavior"),
 ]
 TALKS = [
     dict(year=2024, authors="Clark, D., Hernandez, D., Dilweg, D., Hanson, M. D., & Bizarro, A.", title="Associations between submarine officer personality and operational outcomes", venue="Military Health System Research Symposium", details="Kissimmee, FL"),
