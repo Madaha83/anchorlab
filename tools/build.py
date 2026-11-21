@@ -162,6 +162,10 @@ PROJECTS = [
      "A 2×2 experiment in an air traffic control simulation that separates the effects of actual mindfulness practice from simply calling an activity “mindfulness.” The journal has invited a revised version (November 2026).", None),
     ("Need satisfaction at work and away from it", "needs", "dev", "In progress",
      "A two-study project on whether meeting psychological needs outside work can make up for needs unmet at work. Study 1, a time-lagged survey, is being revised. Study 2, a daily diary study built with lab students, is in preparation for ethics review.", None),
+    # Matthew approved naming Dr. Pérez-Nordtvedt as co-principal investigator on 2026-11-21 (live session).
+    # Device choice is still open; keep the device description general until it is settled.
+    ("Biological age and AI training adoption", "learning", "dev", "Pilot in design",
+     "A pilot study on why some workers pursue AI training and others do not. We ask whether a worker’s biological age, relative to their age in years, predicts whether they take up AI training, using wearable devices that capture markers of biological age. Co-principal investigators: Dr. Liliana Pérez-Nordtvedt, Professor of Strategic Management, and Dr. Matthew Hanson, Assistant Professor of Human Resource Management, both at the URI College of Business.", None),
     ("AI-assisted assessment and feedback", "leadership", "dev", "In development",
      "Building on a proof-of-concept platform, this project will test whether large language models paired with validated assessments can give accurate, personalized developmental feedback at scale.", None),
     ("Validity and fairness in leader assessment", "assessment", "dev", "In development",
