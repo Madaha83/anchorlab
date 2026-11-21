@@ -35,7 +35,7 @@ REPORTS = [
          venue="Defense Technical Information Center", details="Publication No. AD1183611", url="https://apps.dtic.mil/sti/citations/AD1183611"),
 ]
 REVIEW = [
-    dict(authors="Hanson, M. D., Randall, J. G., & Banfi, J. T.", title="Practice, label, or placebo? An experimental test of mindfulness effects in organizational training"),
+    dict(authors="Hanson, M. D., Randall, J. G., & Banfi, J. T.", title="Practice, label, or placebo? An experimental test of mindfulness effects in organizational training", status="Revise and resubmit"),
 ]
 TALKS = [
     dict(year=2024, authors="Clark, D., Hernandez, D., Dilweg, D., Hanson, M. D., & Bizarro, A.", title="Associations between submarine officer personality and operational outcomes", venue="Military Health System Research Symposium", details="Kissimmee, FL"),
@@ -81,6 +81,7 @@ def pub_li(p, status=None):
         venue = f'{p.get("pre", "")}<cite>{p["venue"]}</cite>'
         if p.get("details"):
             venue += f', {p["details"]}'
+    status = status or p.get("status")
     pill = f' <span class="pill">{status}</span>' if status else ""
     links = ""
     if p.get("doi"):
