@@ -158,8 +158,8 @@ AREAS = [
 ]
 
 PROJECTS = [
-    ("Practice, label, or placebo? Mindfulness in training", "learning", "review", "Under review",
-     "A 2×2 experiment in an air traffic control simulation that separates the effects of actual mindfulness practice from simply calling an activity “mindfulness.”", None),
+    ("Practice, label, or placebo? Mindfulness in training", "learning", "review", "In revision",
+     "A 2×2 experiment in an air traffic control simulation that separates the effects of actual mindfulness practice from simply calling an activity “mindfulness.” The journal has invited a revised version (November 2026).", None),
     ("Need satisfaction at work and away from it", "needs", "dev", "In progress",
      "A two-study project on whether meeting psychological needs outside work can make up for needs unmet at work. Study 1, a time-lagged survey, is being revised. Study 2, a daily diary study built with lab students, is in preparation for ethics review.", None),
     ("AI-assisted assessment and feedback", "leadership", "dev", "In development",
